@@ -1,6 +1,6 @@
 ### Data Ingestion: Workflow & Details
 
-This section outlines how the `calls_data_ingest.py` script transforms simulated call records into queryable MongoDB documents, setting the stage for CSV export and Tableau visualization.
+This section outlines how the `calls_data_ingest.py` script transforms generated call records into queryable MongoDB documents, setting the stage for CSV export and Tableau visualization.
 
 ### Configuration & Initialization
 
@@ -12,11 +12,11 @@ Using these parameters, the script initializes a `MongoClient`, establishing a c
 To simulate realistic call records, the script relies on the `Faker` library alongside standard Python modules such as `uuid`, `random`, and `datetime`.
 Each record includes key fields:
 - `call_id`: a unique identifier
-- `caller` and `callee`: simulated phone numbers
+- `caller` and `callee`: generated phone numbers
 - `start_time` and `end_time`: timestamps for the call
 - `duration_sec`: call length in seconds (null for missed calls)
 - `status`: indicates success, failure, or missed
-- `cost_usd`: simulated cost of the call
+- `cost_usd`: generated cost of the call
   
 ### Document Preparation
 Each call record is assembled as a Python dictionary, closely matching MongoDB’s native document structure. Conditional logic is used to manage optional fields—such as excluding `duration_sec` if the call was missed—keeping the schema flexible without sacrificing clarity.
@@ -37,4 +37,4 @@ Once the documents are stored, the dataset can be exported using either the `mon
 ### Downstream Usage in Tableau
 Tableau connects to `calls.csv` as a static data source and powers five analytical worksheets plus a consolidated dashboard. Analysts can refresh the CSV and reload the workbook anytime to update the visualizations with the latest call data.
 
-Together, these steps form a seamless pipeline: simulated Python records become structured MongoDB documents, which then transform into a CSV tailored for rich, interactive Tableau insights.
+Together, these steps form a seamless pipeline: generated Python records become structured MongoDB documents, which then transform into a CSV tailored for rich, interactive Tableau insights.
