@@ -1,7 +1,7 @@
 
 ### Datastore Setup: MongoDB
 
-This section highlights the rationale behind choosing MongoDB for storing simulated call records and details the setup process using the `calls_data_ingest.py` script.
+This section highlights the rationale behind choosing MongoDB for storing generated call records and details the setup process using the `calls_data_ingest.py` script.
 
 ### Why MongoDB?
 
@@ -34,7 +34,7 @@ This section highlights the rationale behind choosing MongoDB for storing simula
 ### Setup Script: `calls_data_ingest.py`
 
 - **Configure Connection**  
-  The script reads the `MONGO_URI` (defaulting to `mongodb://localhost:27017`) and `NUM_CALLS` from environment variables to establish the database connection and control the number of simulated calls.
+  The script reads the `MONGO_URI` (defaulting to `mongodb://localhost:27017`) and `NUM_CALLS` from environment variables to establish the database connection and control the number of generated calls.
 
 - **Generate Records**  
   It uses `Faker` for generating realistic phone numbers and `uuid.uuid4()` for unique call IDs. The generated dataset reflects practical distributions for call type, status, duration, and cost.
